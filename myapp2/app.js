@@ -4,6 +4,8 @@ const port = 3000;
 
 app.use(express.json());
 
+app.use('/', express.static('files'));
+
 app.get('/', (req, res)=> {
     res.send("This is the home page")
 })
@@ -17,7 +19,7 @@ app.post('/user', (req, res)=> {
     res.send(`User data ${username}, ${email}`);
 })
 
-app.post('userForm', (req, res)=>{
+app.post('/userForm', (req, res)=>{
     let data = req.body;
     
     console.log("Data", data);
